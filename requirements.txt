@@ -1,0 +1,18 @@
+python-dotenv
+#framework
+langchain
+langchain-core
+langchain-community
+
+##LLM PROVIDER
+
+langchain-groq
+langchain-text-splitters
+
+#vector database
+langchain-pinecone==0.2.5
+
+#notebook
+jupyter
+ipykernel
+
