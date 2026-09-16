@@ -1,0 +1,19 @@
+2026-09-16 22:22:20,765 | INFO | hr_assistant.pipeline | Building HR assistant...
+2026-09-16 22:22:20,765 | INFO | hr_assistant.tracing | LangSmith tracing ENABLED - project 'hrpolicy', traces at https://smith.langchain.com
+2026-09-16 22:22:22,159 | INFO | httpx | HTTP Request: GET https://37294f9a-59e7-4c2e-a800-5bbcf1cf849e.eu-west-2-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-09-16 22:22:22,162 | INFO | httpx | HTTP Request: GET https://37294f9a-59e7-4c2e-a800-5bbcf1cf849e.eu-west-2-0.aws.cloud.qdrant.io:6333/collections/hr_policy/exists "HTTP/1.1 200 OK"
+2026-09-16 22:22:22,163 | INFO | hr_assistant.pipeline | Qdrant Cloud collection already exists, reusing it
+2026-09-16 22:22:22,163 | INFO | hr_assistant.vector_store | Connecting to existing Qdrant collection 'hr_policy'
+2026-09-16 22:22:22,172 | INFO | hr_assistant.embeddings | Initializing embeddings model 'jina-embeddings-v2-base-en'
+2026-09-16 22:22:23,355 | INFO | httpx | HTTP Request: GET https://37294f9a-59e7-4c2e-a800-5bbcf1cf849e.eu-west-2-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-09-16 22:22:23,355 | INFO | httpx | HTTP Request: GET https://37294f9a-59e7-4c2e-a800-5bbcf1cf849e.eu-west-2-0.aws.cloud.qdrant.io:6333/collections/hr_policy "HTTP/1.1 200 OK"
+2026-09-16 22:22:24,430 | INFO | hr_assistant.vector_store | Creating retriever with top_k=3
+2026-09-16 22:22:24,446 | INFO | hr_assistant.llm | Initializing LLM via Portkey
+2026-09-16 22:22:24,446 | INFO | hr_assistant.gateway | Routing LLM calls through Portkey (provider=@hrpolicy)
+2026-09-16 22:22:27,562 | INFO | hr_assistant.agent | Creating HR agent with 1 tool(s)
+2026-09-16 22:22:27,596 | INFO | hr_assistant.agent | HR agent ready
+2026-09-16 22:22:27,596 | INFO | hr_assistant.pipeline | HR assistant is ready to take questions
+2026-09-16 22:22:50,712 | INFO | __main__ | === Streamlit run: new question received ===
+2026-09-16 22:22:50,717 | INFO | hr_assistant.pipeline | User question: leave policy
+2026-09-16 22:22:51,553 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-16 22:22:53,744 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 401 Unauthorized"

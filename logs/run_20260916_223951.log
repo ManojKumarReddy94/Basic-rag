@@ -1,0 +1,47 @@
+2026-09-16 22:39:57,562 | INFO | __main__ | === CLI run started ===
+2026-09-16 22:39:57,562 | INFO | hr_assistant.pipeline | Building HR assistant...
+2026-09-16 22:39:57,562 | INFO | hr_assistant.tracing | LangSmith tracing ENABLED - project 'hrpolicy', traces at https://smith.langchain.com
+2026-09-16 22:39:58,717 | INFO | httpx | HTTP Request: GET https://37294f9a-59e7-4c2e-a800-5bbcf1cf849e.eu-west-2-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-09-16 22:39:58,717 | INFO | httpx | HTTP Request: GET https://37294f9a-59e7-4c2e-a800-5bbcf1cf849e.eu-west-2-0.aws.cloud.qdrant.io:6333/collections/hr_policy/exists "HTTP/1.1 200 OK"
+2026-09-16 22:39:58,724 | INFO | hr_assistant.pipeline | Qdrant Cloud collection already exists, reusing it
+2026-09-16 22:39:58,730 | INFO | hr_assistant.vector_store | Connecting to existing Qdrant collection 'hr_policy'
+2026-09-16 22:39:58,730 | INFO | hr_assistant.embeddings | Initializing embeddings model 'jina-embeddings-v2-base-en'
+2026-09-16 22:39:59,589 | INFO | httpx | HTTP Request: GET https://37294f9a-59e7-4c2e-a800-5bbcf1cf849e.eu-west-2-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-09-16 22:39:59,604 | INFO | httpx | HTTP Request: GET https://37294f9a-59e7-4c2e-a800-5bbcf1cf849e.eu-west-2-0.aws.cloud.qdrant.io:6333/collections/hr_policy "HTTP/1.1 200 OK"
+2026-09-16 22:40:08,377 | INFO | hr_assistant.vector_store | Creating retriever with top_k=3
+2026-09-16 22:40:08,381 | INFO | hr_assistant.llm | Initializing LLM via Portkey
+2026-09-16 22:40:08,381 | INFO | hr_assistant.gateway | Routing LLM calls through Portkey (provider=@hrpolicy)
+2026-09-16 22:40:09,352 | INFO | hr_assistant.agent | Creating HR agent with 1 tool(s)
+2026-09-16 22:40:09,363 | INFO | hr_assistant.agent | HR agent ready
+2026-09-16 22:40:09,363 | INFO | hr_assistant.pipeline | HR assistant is ready to take questions
+2026-09-16 22:40:09,363 | INFO | hr_assistant.pipeline | User question: How many paid annual leave days do I get?
+2026-09-16 22:40:10,494 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-16 22:40:14,596 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-16 22:40:14,652 | INFO | hr_assistant.tools | search_hr_policy called with query: How many paid annual leave days do I get?
+2026-09-16 22:40:24,017 | INFO | httpx | HTTP Request: POST https://37294f9a-59e7-4c2e-a800-5bbcf1cf849e.eu-west-2-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-16 22:40:24,017 | INFO | hr_assistant.tools | Found 3 matching chunk(s)
+2026-09-16 22:40:24,831 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-16 22:40:24,831 | INFO | hr_assistant.pipeline | Final answer: You’re entitled to **20 days of paid annual leave each calendar year**.  
+Just submit your request through the HR portal at least five working days in advance, and remember that you can carry forward up to five unused days to the next year. Enjoy your time off!
+2026-09-16 22:40:25,223 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-16 22:40:25,227 | INFO | __main__ | === CLI run finished ===
+2026-09-16 22:40:25,227 | INFO | hr_assistant.pipeline | User question: What is the notice period during probation?
+2026-09-16 22:40:25,553 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-16 22:40:26,020 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-16 22:40:26,027 | INFO | hr_assistant.tools | search_hr_policy called with query: notice period during probation
+2026-09-16 22:40:32,737 | INFO | httpx | HTTP Request: POST https://37294f9a-59e7-4c2e-a800-5bbcf1cf849e.eu-west-2-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-16 22:40:32,737 | INFO | hr_assistant.tools | Found 3 matching chunk(s)
+2026-09-16 22:40:38,040 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-16 22:40:38,046 | INFO | hr_assistant.pipeline | Final answer: During your probationary period, the notice period is **15 days**.
+2026-09-16 22:40:38,402 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-16 22:40:38,422 | INFO | __main__ | === CLI run finished ===
+2026-09-16 22:40:38,422 | INFO | hr_assistant.pipeline | User question: Can I work from home every day?
+2026-09-16 22:40:38,758 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-16 22:40:39,474 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-16 22:40:39,476 | INFO | hr_assistant.tools | search_hr_policy called with query: work from home policy
+2026-09-16 22:40:49,314 | INFO | httpx | HTTP Request: POST https://37294f9a-59e7-4c2e-a800-5bbcf1cf849e.eu-west-2-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-09-16 22:40:49,315 | INFO | hr_assistant.tools | Found 3 matching chunk(s)
+2026-09-16 22:40:50,970 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-16 22:40:50,970 | INFO | hr_assistant.pipeline | Final answer: I’m sorry, but our policy limits remote work to **no more than 2 days per week** unless you have written approval for a fully remote arrangement from your department head. Additionally, you’ll need to keep your manager informed and be reachable during our core hours (10 AM–4 PM). If you’re looking to work from home more frequently, it’s best to discuss it with your manager and, if necessary, get the appropriate written approval.
+2026-09-16 22:40:54,659 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-16 22:40:54,665 | INFO | __main__ | === CLI run finished ===

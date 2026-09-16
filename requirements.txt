@@ -17,3 +17,6 @@ langchain-pinecone==0.2.5
 jupyter
 ipykernel
 
+streamlit
+
+

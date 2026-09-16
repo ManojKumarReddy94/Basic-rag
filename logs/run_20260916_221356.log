@@ -1,0 +1,25 @@
+2026-09-16 22:14:02,740 | INFO | __main__ | === CLI run started ===
+2026-09-16 22:14:02,740 | INFO | hr_assistant.pipeline | Building HR assistant...
+2026-09-16 22:14:02,740 | INFO | hr_assistant.tracing | LangSmith tracing ENABLED - project 'hrpolicy', traces at https://smith.langchain.com
+2026-09-16 22:14:03,673 | INFO | httpx | HTTP Request: GET https://37294f9a-59e7-4c2e-a800-5bbcf1cf849e.eu-west-2-0.aws.cloud.qdrant.io:6333/collections/hr_policy/exists "HTTP/1.1 200 OK"
+2026-09-16 22:14:03,681 | INFO | hr_assistant.pipeline | No Qdrant Cloud collection found, building one from scratch
+2026-09-16 22:14:03,681 | INFO | httpx | HTTP Request: GET https://37294f9a-59e7-4c2e-a800-5bbcf1cf849e.eu-west-2-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-09-16 22:14:03,681 | INFO | hr_assistant.document_loader | Loading document from 'data\hr_policy.txt'
+2026-09-16 22:14:03,694 | INFO | hr_assistant.document_loader | Loaded 1 document(s)
+2026-09-16 22:14:03,695 | INFO | hr_assistant.splitter | Split document(s) into 9 chunk(s)
+2026-09-16 22:14:03,695 | INFO | hr_assistant.vector_store | Embedding 9 chunk(s) and uploading to Qdrant collection 'hr_policy'...
+2026-09-16 22:14:03,695 | INFO | hr_assistant.embeddings | Initializing embeddings model 'jina-embeddings-v2-base-en'
+2026-09-16 22:14:04,492 | INFO | httpx | HTTP Request: GET https://37294f9a-59e7-4c2e-a800-5bbcf1cf849e.eu-west-2-0.aws.cloud.qdrant.io:6333/collections/hr_policy/exists "HTTP/1.1 200 OK"
+2026-09-16 22:14:04,518 | INFO | httpx | HTTP Request: GET https://37294f9a-59e7-4c2e-a800-5bbcf1cf849e.eu-west-2-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-09-16 22:14:12,337 | INFO | httpx | HTTP Request: PUT https://37294f9a-59e7-4c2e-a800-5bbcf1cf849e.eu-west-2-0.aws.cloud.qdrant.io:6333/collections/hr_policy "HTTP/1.1 200 OK"
+2026-09-16 22:14:21,915 | INFO | httpx | HTTP Request: PUT https://37294f9a-59e7-4c2e-a800-5bbcf1cf849e.eu-west-2-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points?wait=true "HTTP/1.1 200 OK"
+2026-09-16 22:14:21,929 | INFO | hr_assistant.vector_store | Uploaded to Qdrant collection 'hr_policy'
+2026-09-16 22:14:21,931 | INFO | hr_assistant.vector_store | Creating retriever with top_k=3
+2026-09-16 22:14:21,933 | INFO | hr_assistant.llm | Initializing LLM via Portkey
+2026-09-16 22:14:21,935 | INFO | hr_assistant.gateway | Routing LLM calls through Portkey (provider=@hrpolicy)
+2026-09-16 22:14:29,217 | INFO | hr_assistant.agent | Creating HR agent with 1 tool(s)
+2026-09-16 22:14:29,236 | INFO | hr_assistant.agent | HR agent ready
+2026-09-16 22:14:29,236 | INFO | hr_assistant.pipeline | HR assistant is ready to take questions
+2026-09-16 22:14:29,236 | INFO | hr_assistant.pipeline | User question: How many paid annual leave days do I get?
+2026-09-16 22:14:37,059 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-16 22:14:40,398 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 401 Unauthorized"
